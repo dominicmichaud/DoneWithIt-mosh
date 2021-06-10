@@ -1,7 +1,7 @@
 import React from 'react';
 import { Image, View } from 'react-native';
 
-import styles from '../../styles/comp.card.style.js';
+import styles from '../../styles/components/comp.card.style.js';
 import theme from '../../config/theme';
 import Typography from '../helpers/Typography.js';
 

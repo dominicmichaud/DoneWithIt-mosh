@@ -3,8 +3,7 @@ import { Image, View } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 import ChairPath from '../assets/chair.jpg';
-import styles from '../styles/screens.viewimage.style.js';
-
+import styles from '../styles/screens/screen.viewimage.style.js';
 
 function ViewImageScreen(props) {
     return (

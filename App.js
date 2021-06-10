@@ -4,6 +4,7 @@ import WelcomeScreen from './src/screens/WelcomeScreen';
 import ViewImageScreen from './src/screens/ViewImageScreen';
 import ViewCard from './src/screens/ViewCard';
 import ListingDetailsScreen from './src/screens/ListingDetailsScreen';
+import MessagesScreen from './src/screens/MessagesScreen';
 
 import {
   useFonts,
@@ -27,7 +28,7 @@ export default function App() {
     return <AppLoading />;
   } else {
     return (
-      <ViewImageScreen />
+      <MessagesScreen />
     );
   }
 }

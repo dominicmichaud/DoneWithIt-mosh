@@ -1,7 +1,7 @@
 import React from 'react';
 import { Text } from 'react-native';
 
-import StyleSheetFactory from '../../styles/helper.typography.style.js';
+import StyleSheetFactory from '../../styles/helpers/helper.typography.style.js';
 
 function Typography({ children, color, otherStyles, size, type }) {
     let styles = StyleSheetFactory.getSheet(color, size);

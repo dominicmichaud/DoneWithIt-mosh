@@ -4,7 +4,7 @@ import { Image, ImageBackground, View } from 'react-native';
 import AnimatableElement from '../components/helpers/AnimatableElement';
 import AppLogoPath from '../assets/logo-red.png';
 import RoundedButton from '../components/buttons/RoundedButton';
-import styles from '../styles/screens.welcome.style.js';
+import styles from '../styles/screens/screen.welcome.style.js';
 import theme from '../config/theme';
 import Typography from '../components/helpers/Typography';
 import WelcomeBGPath from '../assets/background.jpg';

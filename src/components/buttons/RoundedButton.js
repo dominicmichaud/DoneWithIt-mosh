@@ -1,7 +1,7 @@
 import React from 'react';
 import { TouchableOpacity } from 'react-native';
 
-import StyleSheetFactory from '../../styles/comp.roundedbutton.style.js';
+import StyleSheetFactory from '../../styles/components/comp.roundedbutton.style.js';
 import theme from '../../config/theme';
 import Typography from '../helpers/Typography.js';
 

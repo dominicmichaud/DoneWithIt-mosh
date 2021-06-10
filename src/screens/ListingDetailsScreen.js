@@ -3,7 +3,7 @@ import { Image, View } from 'react-native';
 import ListItem from '../components/listitem/ListItem';
 import Typography from '../components/helpers/Typography';
 
-import styles from '../styles/screens.listingdetails.style';
+import styles from '../styles/screens/screen.listingdetails.style';
 import theme from '../config/theme';
 
 const { black, secondary } = theme;
