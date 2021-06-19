@@ -7,6 +7,7 @@ export default {
     lightGrey: '#f8f4f4',
     whiteLight: '#fcfcfc',
     white: '#FFF',
+    danger: '#ff5252',
     fonts: {
         heading: 'Oxygen_700Bold',
         body: 'NotoSerif_400Regular',

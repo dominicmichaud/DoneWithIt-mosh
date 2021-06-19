@@ -1,39 +1,49 @@
 import React from 'react';
-import { Image, View } from 'react-native';
+import { Image, TouchableHighlight, View } from 'react-native';
+import Swipeable from 'react-native-gesture-handler/Swipeable';
 
 import styles from '../../styles/components/comp.listitem.style.js';
 import theme from '../../config/theme';
 import Typography from '../helpers/Typography.js';
 
-const { black, medium } = theme;
+const { black, lightGrey, medium } = theme;
 
-function ListItem({ image, subtitle, title }) {
+function ListItem({ image, onPress, renderRightActions, subtitle, title }) {
     return (
-        <View
-            style={styles.container}
+        <Swipeable
+            renderRightActions={renderRightActions}
         >
-            <Image
-                source={image}
-                style={styles.image}
-            />
-            <View>
-                <Typography
-                    color={black}
-                    otherStyles={styles.detailsHeading}
-                    size={16}
-                    type="heading"
+            <TouchableHighlight
+                onPress={onPress}
+                underlayColor={lightGrey}
+            >
+                <View
+                    style={styles.container}
                 >
-                    {title}
-                </Typography>
-                <Typography
-                    color={medium}
-                    otherStyles={styles.detailsHeading}
-                    size={16}
-                >
-                    {subtitle}
-                </Typography>
-            </View>
-        </View>
+                    <Image
+                        source={image}
+                        style={styles.image}
+                    />
+                    <View>
+                        <Typography
+                            color={black}
+                            otherStyles={styles.detailsHeading}
+                            size={16}
+                            type="heading"
+                        >
+                            {title}
+                        </Typography>
+                        <Typography
+                            color={medium}
+                            otherStyles={styles.detailsHeading}
+                            size={16}
+                        >
+                            {subtitle}
+                        </Typography>
+                    </View>
+                </View>
+            </TouchableHighlight>
+        </Swipeable>
     );
 }
 
