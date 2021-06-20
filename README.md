@@ -4,6 +4,8 @@ A Course from the site Code with Mosh. Learn how to build software Native mobile
 
 ---
 
+# MUST USE MacOS Terminal app, not built-in VsCode terminal
+
 ## Node Modules
 
 `yarn install`

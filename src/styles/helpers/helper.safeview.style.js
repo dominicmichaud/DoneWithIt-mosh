@@ -5,6 +5,7 @@ export default class StyleSheetFactory {
         return StyleSheet.create({
             safeView: {
                 paddingTop: paddingTop,
+                flex: 1,
             },
         })
     }

@@ -22,6 +22,7 @@ const initialMessages = [
 
 function MessagesScreen(props) {
     const [messages, setMessages] = useState(initialMessages);
+    const [refreshing, setRefreshing] = useState(false);
 
     const handleDelete = message => {
         setMessages(messages.filter((m) => m.id !== message.id));
@@ -33,6 +34,17 @@ function MessagesScreen(props) {
                 data={messages}
                 keyExtractor={message => message.id.toString()}
                 ItemSeparatorComponent={ListItemSeparator}
+                refreshing={refreshing}
+                onRefresh={() => {
+                    setMessages([
+                        {
+                            id: 3,
+                            title: "Title 3",
+                            description: "D3 lorem ipsum badabing badboom",
+                            image: require('../assets/unsplash/hossein-rezaei--paUf05gaUs-unsplash.jpg'),
+                        },
+                    ])
+                }}
                 renderItem={({ item }) => (
                     <ListItem
                         title={item.title}

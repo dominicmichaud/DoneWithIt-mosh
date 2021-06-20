@@ -8,7 +8,7 @@ import Typography from '../helpers/Typography.js';
 
 const { black, lightGrey, medium } = theme;
 
-function ListItem({ image, onPress, renderRightActions, subtitle, title }) {
+function ListItem({ image, ImageComponent, onPress, renderRightActions, subtitle, title }) {
     return (
         <Swipeable
             renderRightActions={renderRightActions}
@@ -20,26 +20,28 @@ function ListItem({ image, onPress, renderRightActions, subtitle, title }) {
                 <View
                     style={styles.container}
                 >
-                    <Image
+                    {ImageComponent}
+                    {image && <Image
                         source={image}
                         style={styles.image}
-                    />
-                    <View>
+                    />}
+                    <View
+                        style={styles.detailsContainer}
+                    >
                         <Typography
                             color={black}
-                            otherStyles={styles.detailsHeading}
-                            size={16}
+                            size={18}
                             type="heading"
                         >
                             {title}
                         </Typography>
-                        <Typography
+                        {subtitle && <Typography
                             color={medium}
                             otherStyles={styles.detailsHeading}
                             size={16}
                         >
                             {subtitle}
-                        </Typography>
+                        </Typography>}
                     </View>
                 </View>
             </TouchableHighlight>
