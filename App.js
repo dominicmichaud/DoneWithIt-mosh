@@ -1,6 +1,7 @@
 import React from 'react';
 import { SafeAreaView } from 'react-native';
 import AppLoading from 'expo-app-loading';
+import AccountScreen from './src/screens/AccountScreen';
 import WelcomeScreen from './src/screens/WelcomeScreen';
 import ViewImageScreen from './src/screens/ViewImageScreen';
 import ViewCard from './src/screens/ViewCard';
@@ -30,14 +31,7 @@ export default function App() {
     return <AppLoading />;
   } else {
     return (
-      <SafeAreaView>
-        <ListItem
-          title="My Title"
-          ImageComponent={
-            <Icon name="email" />
-          }
-        />
-      </SafeAreaView>
+      <AccountScreen />
     );
   }
 }
