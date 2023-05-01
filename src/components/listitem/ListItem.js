@@ -2,13 +2,15 @@ import React from 'react';
 import { Image, TouchableHighlight, View } from 'react-native';
 import Swipeable from 'react-native-gesture-handler/Swipeable';
 
-import styles from '../../styles/components/comp.listitem.style.js';
+import StyleSheetFactory from '../../styles/components/comp.listitem.style.js';
 import theme from '../../config/theme';
 import Typography from '../helpers/Typography.js';
 
 const { black, lightGrey, medium } = theme;
 
-function ListItem({ image, ImageComponent, onPress, renderRightActions, subtitle, title }) {
+function ListItem({ image, IconComponent, onPress, renderRightActions, subtitle, title }) {
+    let styles = StyleSheetFactory.getSheet('#FFF');
+
     return (
         <Swipeable
             renderRightActions={renderRightActions}
@@ -20,7 +22,7 @@ function ListItem({ image, ImageComponent, onPress, renderRightActions, subtitle
                 <View
                     style={styles.container}
                 >
-                    {ImageComponent}
+                    {IconComponent}
                     {image && <Image
                         source={image}
                         style={styles.image}

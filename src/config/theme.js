@@ -8,6 +8,7 @@ export default {
     whiteLight: '#fcfcfc',
     white: '#FFF',
     danger: '#ff5252',
+    logout: '#ffe66d',
     fonts: {
         heading: 'Oxygen_700Bold',
         body: 'NotoSerif_400Regular',
