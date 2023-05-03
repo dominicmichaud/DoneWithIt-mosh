@@ -6,7 +6,7 @@ import Typography from '../components/helpers/Typography';
 import styles from '../styles/screens/screen.listingdetails.style';
 import theme from '../config/theme';
 
-const { black, secondary } = theme;
+const { secondary } = theme;
 
 function ListingDetailsScreen(props) {
     return (
@@ -19,7 +19,6 @@ function ListingDetailsScreen(props) {
                 style={styles.detailsContainer}
             >
                 <Typography
-                    color={black}
                     otherStyles={styles.cardHeading}
                     size={20}
                     type="heading"
@@ -28,7 +27,6 @@ function ListingDetailsScreen(props) {
                 </Typography>
                 <Typography
                     color={secondary}
-                    size={18}
                     type="heading"
                 >
                     $100
