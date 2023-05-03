@@ -5,9 +5,9 @@ import styles from '../../styles/components/comp.card.style.js';
 import theme from '../../config/theme';
 import Typography from '../helpers/Typography.js';
 
-const { black, secondary } = theme;
+const { darkGrey, secondary } = theme;
 
-function Card({ cardImagePath, title, subtitle }) {
+function Card({ cardImagePath, title, subtitle, titleColor = darkGrey, subtitleColor = secondary, uppercase = false }) {
     return (
         <View
             style={styles.card}
@@ -25,15 +25,15 @@ function Card({ cardImagePath, title, subtitle }) {
                 style={styles.cardContent}
             >
                 <Typography
-                    color={black}
+                    color={titleColor}
                     otherStyles={styles.cardHeading}
-                    size={16}
                     type="heading"
+                    uppercase={uppercase}
                 >
                     {title}
                 </Typography>
                 <Typography
-                    color={secondary}
+                    color={subtitleColor}
                     size={16}
                     type="heading"
                 >

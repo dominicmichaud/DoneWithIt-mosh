@@ -6,7 +6,7 @@ import StyleSheetFactory from '../../styles/components/comp.listitem.style.js';
 import theme from '../../config/theme';
 import Typography from '../helpers/Typography.js';
 
-const { black, lightGrey, medium } = theme;
+const { lightGrey, medium } = theme;
 
 function ListItem({ image, IconComponent, onPress, renderRightActions, subtitle, title }) {
     let styles = StyleSheetFactory.getSheet('#FFF');
@@ -31,8 +31,6 @@ function ListItem({ image, IconComponent, onPress, renderRightActions, subtitle,
                         style={styles.detailsContainer}
                     >
                         <Typography
-                            color={black}
-                            size={18}
                             type="heading"
                         >
                             {title}

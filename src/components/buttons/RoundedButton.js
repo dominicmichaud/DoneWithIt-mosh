@@ -7,18 +7,19 @@ import Typography from '../helpers/Typography.js';
 
 const { whiteLight } = theme;
 
-function RoundedButton({ bgColor, marginBottom, label, pressHandler }) {
+function RoundedButton({ bgColor, marginBottom, label, pressHandler, ...otherProps }) {
     let styles = StyleSheetFactory.getSheet(bgColor, marginBottom);
 
     return (
         <TouchableOpacity
             style={styles.button}
             onPress={pressHandler}
+            {...otherProps}
         >
             <Typography
                 color={whiteLight}
-                size={18}
                 type="heading"
+                uppercase
             >
                 {label}
             </Typography>

@@ -10,6 +10,9 @@ import MessagesScreen from './src/screens/MessagesScreen';
 import Icon from './src/components/helpers/Icon';
 import ListItem from './src/components/listitem/ListItem';
 import ListingsScreen from './src/screens/ListingsScreen';
+import AppTextInput from './src/components/inputs/AppTextInput';
+import RoundedButton from './src/components/buttons/RoundedButton';
+import Card from './src/components/card/Card';
 
 import {
   useFonts,
@@ -32,7 +35,9 @@ export default function App() {
     return <AppLoading />;
   } else {
     return (
-      <ListingsScreen />
+      <SafeAreaView>
+        <AppTextInput label="Name" placeholder="Waddaup!" icon="email" />
+      </SafeAreaView>
     );
   }
 }
