@@ -7,6 +7,9 @@ export default class StyleSheetFactory {
                 paddingTop: paddingTop,
                 flex: 1,
             },
+            view: {
+                padding: 20
+            },
         })
     }
 }

@@ -9,6 +9,7 @@ import ListingDetailsScreen from './src/screens/ListingDetailsScreen';
 import MessagesScreen from './src/screens/MessagesScreen';
 import Icon from './src/components/helpers/Icon';
 import ListItem from './src/components/listitem/ListItem';
+import ListingsScreen from './src/screens/ListingsScreen';
 
 import {
   useFonts,
@@ -31,7 +32,7 @@ export default function App() {
     return <AppLoading />;
   } else {
     return (
-      <AccountScreen />
+      <ListingsScreen />
     );
   }
 }

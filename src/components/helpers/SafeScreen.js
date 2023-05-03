@@ -1,5 +1,5 @@
 import React from 'react';
-import { SafeAreaView } from 'react-native';
+import { SafeAreaView, View } from 'react-native';
 import Constants from 'expo-constants';
 
 import StyleSheetFactory from '../../styles/helpers/helper.safeview.style.js';
@@ -11,7 +11,9 @@ function SafeScreen({ children, style }) {
         <SafeAreaView
             style={[styles.safeView, style]}
         >
-            {children}
+            <View style={styles.view}>
+                {children}
+            </View>
         </SafeAreaView>
     );
 }
