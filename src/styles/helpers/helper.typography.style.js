@@ -1,13 +1,19 @@
 import { StyleSheet } from 'react-native';
 
 import theme from '../../config/theme';
-const { fonts: { heading, body } } = theme;
+const { fonts: { heading_400, heading_700, body } } = theme;
 
 export default class StyleSheetFactory {
     static getSheet(color, size, isUppercase) {
         return StyleSheet.create({
-            heading: {
-                fontFamily: heading,
+            heading400: {
+                fontFamily: heading_400,
+                fontSize: size,
+                color: color,
+                textTransform: isUppercase ? 'uppercase' : 'none'
+            },
+            heading700: {
+                fontFamily: heading_700,
                 fontSize: size,
                 color: color,
                 textTransform: isUppercase ? 'uppercase' : 'none'
