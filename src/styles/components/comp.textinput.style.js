@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native';
 
 import theme from '../../config/theme';
-const { heading, darkGrey, lightGrey } = theme;
+const { darkGrey, lightGrey, fonts: { heading_400 } } = theme;
 
 export default StyleSheet.create({
     container: {
@@ -21,7 +21,10 @@ export default StyleSheet.create({
     },
     textInput: {
         fontSize: 18,
-        fontFamily: heading,
+        fontFamily: heading_400,
         color: darkGrey,
+    },
+    picker: {
+        flex: 1,
     },
 });

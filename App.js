@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { SafeAreaView } from 'react-native';
 import AppLoading from 'expo-app-loading';
 import AccountScreen from './src/screens/AccountScreen';
@@ -11,11 +11,28 @@ import Icon from './src/components/helpers/Icon';
 import ListItem from './src/components/listitem/ListItem';
 import ListingsScreen from './src/screens/ListingsScreen';
 import AppTextInput from './src/components/inputs/AppTextInput';
+import AppPicker from './src/components/picker/AppPicker';
 import RoundedButton from './src/components/buttons/RoundedButton';
 import Card from './src/components/card/Card';
 
+const categories = [
+  {
+    label: "Furniture",
+    value: 1
+  },
+  {
+    label: "Clothing",
+    value: 2
+  },
+  {
+    label: "Cameras",
+    value: 3
+  },
+];
+
 import {
   useFonts,
+  Oxygen_400Regular,
   Oxygen_700Bold
 } from '@expo-google-fonts/oxygen';
 
@@ -26,10 +43,13 @@ import {
 
 export default function App() {
   let [fontsLoaded] = useFonts({
+    Oxygen_400Regular,
     Oxygen_700Bold,
     NotoSerif_400Regular,
     NotoSerif_700Bold,
   });
+
+  const [category, setCategory] = useState();
 
   if (!fontsLoaded) {
     return <AppLoading />;
@@ -37,6 +57,13 @@ export default function App() {
     return (
       <SafeAreaView>
         <AppTextInput label="Name" placeholder="Waddaup!" icon="email" />
+        <AppPicker
+          icon="apps"
+          items={categories}
+          onSelectItem={item => setCategory(item)}
+          placeholder="Category"
+          selectedItem={category}
+        />
       </SafeAreaView>
     );
   }

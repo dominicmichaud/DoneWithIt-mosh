@@ -11,7 +11,8 @@ export default {
     danger: '#ff5252',
     logout: '#ffe66d',
     fonts: {
-        heading: 'Oxygen_700Bold',
+        heading_400: 'Oxygen_400Regular',
+        heading_700: 'Oxygen_700Bold',
         body: 'NotoSerif_400Regular',
         bodyBold: 'NotoSerif_700Bold',
     },
