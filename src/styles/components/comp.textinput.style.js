@@ -12,6 +12,7 @@ export default StyleSheet.create({
         padding: 15,
         marginVertical: 10,
         alignItems: 'center',
+        marginBottom: 25,
     },
     icon: {
         marginRight: 10,
