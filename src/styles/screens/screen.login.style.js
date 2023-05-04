@@ -8,4 +8,10 @@ export default StyleSheet.create({
         marginTop: 50,
         marginBottom: 20,
     },
+    formControl: {
+        marginBottom: 5,
+    },
+    buttonContainer: {
+        marginTop: 5
+    },
 });

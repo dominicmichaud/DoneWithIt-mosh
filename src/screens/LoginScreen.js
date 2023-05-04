@@ -4,7 +4,8 @@ import { Formik } from 'formik';
 import * as Yup from 'yup';
 
 import AppLogoPath from '../assets/logo-red.png';
-import AppTextInput from '../components/inputs/AppTextInput';
+import AppTextInput from '../components/form/AppTextInput';
+import ErrorMessage from '../components/form/ErrorMessage';
 import RoundedButton from '../components/buttons/RoundedButton';
 import SafeScreen from '../components/helpers/SafeScreen';
 import styles from '../styles/screens/screen.login.style.js';
@@ -31,43 +32,41 @@ function LoginScreen(props) {
                     onSubmit={values => console.log(values)}
                     validationSchema={validationSchema}
                 >
-                    {({ handleChange, handleSubmit, errors }) => (
+                    {({ handleChange, handleSubmit, errors, setFieldTouched, touched }) => (
                         <>
-                            <AppTextInput
-                                autoCapitalize="none"
-                                autoCorrect={false}
-                                icon="email"
-                                keyboardType="email-address"
-                                label="Email"
-                                onChangeText={handleChange("email")}
-                                placeholder="Email"
-                                textContentType="emailAddress"
-                            />
-                            {errors.email && (
-                                <Typography color={danger}>
-                                    {errors.email}
-                                </Typography>
-                            )}
-                            <AppTextInput
-                                autoCapitalize="none"
-                                autoCorrect={false}
-                                icon="lock"
-                                label="Password"
-                                onChangeText={handleChange("password")}
-                                placeholder="Password"
-                                secureTextEntry
-                                textContentType="password"
-                            />
-                            {errors.password && (
-                                <Typography color={danger}>
-                                    {errors.password}
-                                </Typography>
-                            )}
-                            <RoundedButton
-                                bgColor={primary}
-                                label="Login"
-                                pressHandler={handleSubmit}
-                            />
+                            <View style={styles.formControl}>
+                                <AppTextInput
+                                    autoCapitalize="none"
+                                    autoCorrect={false}
+                                    icon="email"
+                                    keyboardType="email-address"
+                                    onBlur={() => setFieldTouched('email')}
+                                    onChangeText={handleChange("email")}
+                                    placeholder="Email"
+                                    textContentType="emailAddress"
+                                />
+                                <ErrorMessage error={errors.email} visible={touched.email} />
+                            </View>
+                            <View style={styles.formControl}>
+                                <AppTextInput
+                                    autoCapitalize="none"
+                                    autoCorrect={false}
+                                    icon="lock"
+                                    onBlur={() => setFieldTouched('password')}
+                                    onChangeText={handleChange("password")}
+                                    placeholder="Password"
+                                    secureTextEntry
+                                    textContentType="password"
+                                />
+                                <ErrorMessage error={errors.password} visible={touched.password} />
+                            </View>
+                            <View style={styles.buttonContainer}>
+                                <RoundedButton
+                                    bgColor={primary}
+                                    label="Login"
+                                    pressHandler={handleSubmit}
+                                />
+                            </View>
                         </>
                     )}
                 </Formik>
