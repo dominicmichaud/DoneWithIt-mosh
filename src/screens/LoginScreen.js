@@ -1,17 +1,23 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Image, View } from 'react-native';
+import { Formik } from 'formik';
+import * as Yup from 'yup';
 
-import RoundedButton from '../components/buttons/RoundedButton';
 import AppLogoPath from '../assets/logo-red.png';
 import AppTextInput from '../components/inputs/AppTextInput';
+import RoundedButton from '../components/buttons/RoundedButton';
 import SafeScreen from '../components/helpers/SafeScreen';
 import styles from '../styles/screens/screen.login.style.js';
 import theme from '../config/theme';
+import Typography from '../components/helpers/Typography';
+
+const validationSchema = Yup.object().shape({
+    email: Yup.string().required().email().label("Email"),
+    password: Yup.string().required().min(4).label("Password"),
+});
 
 function LoginScreen(props) {
-    const { primary } = theme;
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
+    const { danger, primary } = theme;
 
     return (
         <SafeScreen>
@@ -20,31 +26,51 @@ function LoginScreen(props) {
                 style={styles.appLogo}
             />
             <View>
-                <AppTextInput
-                    autoCapitalize="none"
-                    autoCorrect={false}
-                    icon="email"
-                    keyboardType="email-address"
-                    label="Email"
-                    onChangeText={(text) => setEmail(text)}
-                    placeholder="Email"
-                    textContentType="emailAddress"
-                />
-                <AppTextInput
-                    autoCapitalize="none"
-                    autoCorrect={false}
-                    icon="lock"
-                    label="Password"
-                    onChangeText={(text) => setPassword(text)}
-                    placeholder="Password"
-                    secureTextEntry
-                    textContentType="password"
-                />
-                <RoundedButton
-                    bgColor={primary}
-                    label="Login"
-                    pressHandler={() => console.log('whatever', password, email)}
-                />
+                <Formik
+                    initialValues={{ email: '', password: '' }}
+                    onSubmit={values => console.log(values)}
+                    validationSchema={validationSchema}
+                >
+                    {({ handleChange, handleSubmit, errors }) => (
+                        <>
+                            <AppTextInput
+                                autoCapitalize="none"
+                                autoCorrect={false}
+                                icon="email"
+                                keyboardType="email-address"
+                                label="Email"
+                                onChangeText={handleChange("email")}
+                                placeholder="Email"
+                                textContentType="emailAddress"
+                            />
+                            {errors.email && (
+                                <Typography color={danger}>
+                                    {errors.email}
+                                </Typography>
+                            )}
+                            <AppTextInput
+                                autoCapitalize="none"
+                                autoCorrect={false}
+                                icon="lock"
+                                label="Password"
+                                onChangeText={handleChange("password")}
+                                placeholder="Password"
+                                secureTextEntry
+                                textContentType="password"
+                            />
+                            {errors.password && (
+                                <Typography color={danger}>
+                                    {errors.password}
+                                </Typography>
+                            )}
+                            <RoundedButton
+                                bgColor={primary}
+                                label="Login"
+                                pressHandler={handleSubmit}
+                            />
+                        </>
+                    )}
+                </Formik>
             </View>
         </SafeScreen>
     );
