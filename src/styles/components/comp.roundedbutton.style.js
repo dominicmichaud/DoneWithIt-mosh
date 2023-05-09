@@ -5,7 +5,7 @@ export default class StyleSheetFactory {
         return StyleSheet.create({
             button: {
                 width: '100%',
-                height: 70,
+                paddingVertical: 15,
                 backgroundColor: bgColor,
                 marginBottom: marginBottom,
                 borderRadius: 50,
