@@ -6,7 +6,7 @@ import theme from '../../config/theme';
 
 const { darkGrey } = theme;
 
-function Typography({ children, otherStyles, type, size = 18, color = darkGrey, uppercase = false, bold = false }) {
+function Typography({ children, otherStyles, type, size = 18, color = darkGrey, uppercase = false, bold = false, ...otherProps }) {
     let styles = StyleSheetFactory.getSheet(color, size, uppercase);
     const { heading700, heading400, body } = styles;
     let heading_style = heading400;
@@ -18,6 +18,7 @@ function Typography({ children, otherStyles, type, size = 18, color = darkGrey, 
     return (
         <Text
             style={[type === 'heading' ? heading_style : body, otherStyles]}
+            {...otherProps}
         >
             {children}
         </Text>

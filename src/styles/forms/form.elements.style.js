@@ -33,10 +33,21 @@ export default StyleSheet.create({
         color: darkGrey,
     },
     // Picker
+    pickerCategoryContainer: {
+        alignItems: 'center',
+        paddingHorizontal: 30,
+        paddingVertical: 15,
+        width: '33%'
+    },
+    pickerCategoryLabel: {
+        marginTop: 5,
+        textAlign: 'center'
+    },
     pickerSelectedItemLabel: {
         flex: 1,
     },
     pickerListItems: {
+        paddingHorizontal: 30,
         paddingVertical: 15,
     },
 });

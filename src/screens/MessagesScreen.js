@@ -8,14 +8,14 @@ import ListItemDeleteAction from '../components/listitem/ListItemDeleteAction';
 const initialMessages = [
     {
         id: 1,
-        title: "T1",
-        description: "D1",
+        title: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque accusantium at blanditiis placeat, sint nam optio? Aperiam, qui minus voluptate vero magni nisi voluptatibus cumque, dolore ad, corrupti doloremque iure!",
         image: require('../assets/mosh.jpg'),
     },
     {
         id: 2,
-        title: "T2",
-        description: "D2",
+        title: "Lorem ipsum dolor sit",
+        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque accusantium at blanditiis placeat, sint nam optio?",
         image: require('../assets/unsplash/hossein-rezaei--paUf05gaUs-unsplash.jpg'),
     },
 ];
@@ -56,6 +56,7 @@ function MessagesScreen(props) {
                                 onPress={() => handleDelete(item)}
                             />
                         )}
+                        showChevrons
                     />
                 )}
             />

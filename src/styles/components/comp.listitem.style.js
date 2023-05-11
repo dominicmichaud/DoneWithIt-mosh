@@ -13,6 +13,9 @@ export default class StyleSheetFactory {
                 justifyContent: 'center',
                 marginLeft: 10,
             },
+            detailsFlex: {
+                flex: 1,
+            },
             detailsHeading: {
                 marginTop: 6,
             },
