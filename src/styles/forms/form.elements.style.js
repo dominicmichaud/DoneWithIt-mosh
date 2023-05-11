@@ -4,7 +4,15 @@ import theme from '../../config/theme';
 const { darkGrey, lightGrey, fonts: { heading_400 } } = theme;
 
 export default StyleSheet.create({
-    container: {
+    // General
+    buttonContainer: {
+        marginTop: 5
+    },
+    formControl: {
+        marginBottom: 5,
+    },
+    // Input
+    inputContainer: {
         backgroundColor: lightGrey,
         borderRadius: 25,
         flexDirection: 'row',
@@ -13,10 +21,10 @@ export default StyleSheet.create({
         marginVertical: 10,
         alignItems: 'center',
     },
-    icon: {
+    inputIcon: {
         marginRight: 10,
     },
-    label: {
+    inputLabel: {
         paddingLeft: 15,
     },
     textInput: {
@@ -24,7 +32,11 @@ export default StyleSheet.create({
         fontFamily: heading_400,
         color: darkGrey,
     },
-    picker: {
+    // Picker
+    pickerSelectedItemLabel: {
         flex: 1,
+    },
+    pickerListItems: {
+        paddingVertical: 15,
     },
 });

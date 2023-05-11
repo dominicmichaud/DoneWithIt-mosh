@@ -5,9 +5,9 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 import PickerItem from './PickerItem';
 import SafeScreen from '../helpers/SafeScreen';
 import Typography from '../helpers/Typography';
-import styles from '../../styles/components/comp.textinput.style';
+import styles from '../../styles/forms/form.elements.style';
 import theme from '../../config/theme';
-const { medium } = theme;
+const { black, medium, placeholderGrey } = theme;
 
 
 function AppPicker({ icon, items, label, onSelectItem, placeholder, selectedItem, labelSize = 16 }) {
@@ -17,10 +17,10 @@ function AppPicker({ icon, items, label, onSelectItem, placeholder, selectedItem
         <>
             <TouchableWithoutFeedback onPress={() => setModalVisible(true)}>
                 <View>
-                    {label && <Typography type="heading" size={labelSize} otherStyles={styles.label}>{label}</Typography>}
-                    <View style={styles.container}>
-                        {icon && <MaterialCommunityIcons name={icon} size={20} color={medium} style={styles.icon} />}
-                        <Typography type="heading" otherStyles={styles.picker}>
+                    {label && <Typography type="heading" size={labelSize} otherStyles={styles.inputLabel}>{label}</Typography>}
+                    <View style={styles.inputContainer}>
+                        {icon && <MaterialCommunityIcons name={icon} size={20} color={medium} style={styles.inputIcon} />}
+                        <Typography type="heading" otherStyles={styles.pickerSelectedItemLabel} color={selectedItem ? black : placeholderGrey}>
                             {selectedItem ? selectedItem.label : placeholder}
                         </Typography>
                         <MaterialCommunityIcons name="chevron-down" size={20} color={medium} />

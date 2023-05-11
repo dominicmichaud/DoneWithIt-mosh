@@ -2,7 +2,7 @@ import React from 'react';
 import { FlatList, View } from 'react-native';
 import Icon from '../components/helpers/Icon';
 import ListItem from '../components/listitem/ListItem';
-import ListItemSeparator from '../components/helpers/ListItemSeparator';
+import ListItemSeparator from '../components/listitem/ListItemSeparator';
 import SafeScreen from '../components/helpers/SafeScreen';
 
 import styles from '../styles/screens/screen.account.style';

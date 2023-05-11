@@ -3,7 +3,7 @@ import { View } from 'react-native';
 import { useFormikContext } from 'formik';
 
 import RoundedButton from '../buttons/RoundedButton';
-import styles from '../../styles/components/comp.formfield.style';
+import styles from '../../styles/forms/form.elements.style';
 import theme from '../../config/theme';
 
 function AppSubmitButton({ label }) {
