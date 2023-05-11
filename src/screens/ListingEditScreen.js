@@ -2,7 +2,7 @@ import React from 'react';
 import { View } from 'react-native';
 import * as Yup from 'yup';
 
-import { AppForm, AppFormField, AppFormPicker, AppSubmitButton } from '../components/form';
+import { Form, FormField, FormPicker, SubmitButton } from '../components/form';
 import CategoryPickerItem from '../components/picker/CategoryPickerItem';
 import SafeScreen from '../components/helpers/SafeScreen';
 
@@ -74,33 +74,33 @@ function ListingEditScreen(props) {
     return (
         <SafeScreen padding>
             <View>
-                <AppForm
+                <Form
                     initialValues={{ category: null, title: '', price: 0, description: '' }}
                     onSubmit={values => console.log(values)}
                     validationSchema={validationSchema}
                 >
-                    <AppFormField
+                    <FormField
                         autoCapitalize
                         autoCorrect={false}
                         maxLength={255}
                         name="title"
                         placeholder="Title"
                     />
-                    <AppFormField
+                    <FormField
                         autoCorrect={false}
                         keyboardType="numeric"
                         maxLength={8}
                         name="price"
                         placeholder="Price"
                     />
-                    <AppFormPicker
+                    <FormPicker
                         items={categories}
                         name="category"
                         numberOfColumns={3}
                         PickerItemComponent={CategoryPickerItem}
                         placeholder="Category"
                     />
-                    <AppFormField
+                    <FormField
                         autoCorrect={false}
                         maxLength={255}
                         multiline
@@ -108,8 +108,8 @@ function ListingEditScreen(props) {
                         numberOfLines={3}
                         placeholder="Description"
                     />
-                    <AppSubmitButton label="Post" />
-                </AppForm>
+                    <SubmitButton label="Post" />
+                </Form>
             </View>
         </SafeScreen>
     );

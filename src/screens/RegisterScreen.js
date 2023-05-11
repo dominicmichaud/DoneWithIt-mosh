@@ -2,7 +2,7 @@ import React from 'react';
 import { Image, View } from 'react-native';
 import * as Yup from 'yup';
 
-import { AppForm, AppFormField, AppSubmitButton } from '../components/form';
+import { Form, FormField, SubmitButton } from '../components/form';
 import AppLogoPath from '../assets/logo-red.png';
 import SafeScreen from '../components/helpers/SafeScreen';
 import styles from '../styles/screens/screen.login.style.js';
@@ -21,12 +21,12 @@ function RegisterScreen(props) {
                 style={styles.appLogo}
             />
             <View>
-                <AppForm
+                <Form
                     initialValues={{ email: '', name: '', password: '' }}
                     onSubmit={values => console.log(values)}
                     validationSchema={validationSchema}
                 >
-                    <AppFormField
+                    <FormField
                         autoCapitalize
                         autoCorrect={false}
                         icon="account"
@@ -34,7 +34,7 @@ function RegisterScreen(props) {
                         placeholder="Name"
                         textContentType="name"
                     />
-                    <AppFormField
+                    <FormField
                         autoCapitalize="none"
                         autoCorrect={false}
                         icon="email"
@@ -43,7 +43,7 @@ function RegisterScreen(props) {
                         placeholder="Email"
                         textContentType="emailAddress"
                     />
-                    <AppFormField
+                    <FormField
                         autoCapitalize="none"
                         autoCorrect={false}
                         icon="lock"
@@ -52,8 +52,8 @@ function RegisterScreen(props) {
                         secureTextEntry
                         textContentType="password"
                     />
-                    <AppSubmitButton label="Register" />
-                </AppForm>
+                    <SubmitButton label="Register" />
+                </Form>
             </View>
         </SafeScreen>
     );
