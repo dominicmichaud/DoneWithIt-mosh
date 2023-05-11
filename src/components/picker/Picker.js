@@ -10,7 +10,7 @@ import theme from '../../config/theme';
 const { black, medium, placeholderGrey } = theme;
 
 
-function AppPicker({ icon, items, label, onSelectItem, placeholder, selectedItem, labelSize = 16 }) {
+function AppPicker({ icon, items, label, numberOfColumns = 1, PickerItemComponent = PickerItem, onSelectItem, placeholder, selectedItem, inputWidth = '100%', labelSize = 16 }) {
     const [modalVisible, setModalVisible] = useState(false);
 
     return (
@@ -18,7 +18,7 @@ function AppPicker({ icon, items, label, onSelectItem, placeholder, selectedItem
             <TouchableWithoutFeedback onPress={() => setModalVisible(true)}>
                 <View>
                     {label && <Typography type="heading" size={labelSize} otherStyles={styles.inputLabel}>{label}</Typography>}
-                    <View style={styles.inputContainer}>
+                    <View style={[styles.inputContainer, { width: inputWidth }]}>
                         {icon && <MaterialCommunityIcons name={icon} size={20} color={medium} style={styles.inputIcon} />}
                         <Typography type="heading" otherStyles={styles.pickerSelectedItemLabel} color={selectedItem ? black : placeholderGrey}>
                             {selectedItem ? selectedItem.label : placeholder}
@@ -33,9 +33,10 @@ function AppPicker({ icon, items, label, onSelectItem, placeholder, selectedItem
                     <FlatList
                         data={items}
                         keyExtractor={item => item.value.toString()}
+                        numColumns={numberOfColumns}
                         renderItem={({ item }) => (
-                            <PickerItem
-                                label={item.label}
+                            <PickerItemComponent
+                                item={item}
                                 onPress={() => {
                                     setModalVisible(false);
                                     onSelectItem(item);

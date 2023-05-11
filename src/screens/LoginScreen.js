@@ -2,7 +2,7 @@ import React from 'react';
 import { Image, View } from 'react-native';
 import * as Yup from 'yup';
 
-import { AppForm, AppFormField, AppSubmitButton } from '../components/form';
+import { Form, FormField, SubmitButton } from '../components/form';
 import AppLogoPath from '../assets/logo-red.png';
 import SafeScreen from '../components/helpers/SafeScreen';
 import styles from '../styles/screens/screen.login.style.js';
@@ -20,12 +20,12 @@ function LoginScreen(props) {
                 style={styles.appLogo}
             />
             <View>
-                <AppForm
+                <Form
                     initialValues={{ email: '', password: '' }}
                     onSubmit={values => console.log(values)}
                     validationSchema={validationSchema}
                 >
-                    <AppFormField
+                    <FormField
                         autoCapitalize="none"
                         autoCorrect={false}
                         icon="email"
@@ -34,7 +34,7 @@ function LoginScreen(props) {
                         placeholder="Email"
                         textContentType="emailAddress"
                     />
-                    <AppFormField
+                    <FormField
                         autoCapitalize="none"
                         autoCorrect={false}
                         icon="lock"
@@ -43,8 +43,8 @@ function LoginScreen(props) {
                         secureTextEntry
                         textContentType="password"
                     />
-                    <AppSubmitButton label="Login" />
-                </AppForm>
+                    <SubmitButton label="Login" />
+                </Form>
             </View>
         </SafeScreen>
     );

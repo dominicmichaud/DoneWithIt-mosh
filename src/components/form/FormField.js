@@ -2,7 +2,7 @@ import React from 'react';
 import { View } from 'react-native';
 import { useFormikContext } from 'formik';
 
-import AppTextInput from './AppTextInput';
+import TextInput from './TextInput';
 import ErrorMessage from './ErrorMessage';
 import styles from '../../styles/forms/form.elements.style';
 
@@ -12,7 +12,7 @@ function AppFormField({ name, ...otherProps }) {
     return (
         <>
             <View style={styles.formControl}>
-                <AppTextInput
+                <TextInput
                     onBlur={() => setFieldTouched(name)}
                     onChangeText={handleChange(name)}
                     {...otherProps}

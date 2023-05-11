@@ -8,8 +8,11 @@ export default class StyleSheetFactory {
                 flex: 1,
             },
             view: {
-                padding: 20
+                flex: 1,
             },
+            viewPadding: {
+                padding: 20
+            }
         })
     }
 }
