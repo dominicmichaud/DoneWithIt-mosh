@@ -3,16 +3,16 @@ import { View, TextInput } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 import Typography from '../helpers/Typography';
-import styles from '../../styles/components/comp.textinput.style';
+import styles from '../../styles/forms/form.elements.style';
 import theme from '../../config/theme';
 const { medium } = theme;
 
 function AppTextInput({ icon, label, labelSize = 16, ...otherProps }) {
     return (
         <View>
-            {label && <Typography type="heading" size={labelSize} otherStyles={styles.label}>{label}</Typography>}
-            <View style={styles.container}>
-                {icon && <MaterialCommunityIcons name={icon} size={20} color={medium} style={styles.icon} />}
+            {label && <Typography type="heading" size={labelSize} otherStyles={styles.inputLabel}>{label}</Typography>}
+            <View style={styles.inputContainer}>
+                {icon && <MaterialCommunityIcons name={icon} size={20} color={medium} style={styles.inputIcon} />}
                 <TextInput style={styles.textInput} {...otherProps} />
             </View>
         </View>

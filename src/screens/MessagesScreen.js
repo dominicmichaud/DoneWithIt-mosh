@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { FlatList } from 'react-native';
-import ListItemSeparator from '../components/helpers/ListItemSeparator';
+import ListItemSeparator from '../components/listitem/ListItemSeparator';
 import SafeScreen from '../components/helpers/SafeScreen';
 import ListItem from '../components/listitem/ListItem';
 import ListItemDeleteAction from '../components/listitem/ListItemDeleteAction';

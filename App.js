@@ -3,6 +3,7 @@ import React from 'react';
 import AppLoading from 'expo-app-loading';
 import RegisterScreen from './src/screens/RegisterScreen';
 import LoginScreen from './src/screens/LoginScreen';
+import ListingEditScreen from './src/screens/ListingEditScreen';
 
 import {
   useFonts,
@@ -27,7 +28,7 @@ export default function App() {
     return <AppLoading />;
   } else {
     return (
-      <RegisterScreen />
+      <ListingEditScreen />
     );
   }
 }
