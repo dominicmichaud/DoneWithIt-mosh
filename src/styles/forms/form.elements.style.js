@@ -11,6 +11,30 @@ export default StyleSheet.create({
     formControl: {
         marginBottom: 5,
     },
+    // Image Input
+    imageInput: {
+        alignItems: 'center',
+        backgroundColor: lightGrey,
+        borderRadius: 15,
+        justifyContent: 'center',
+        height: 80,
+        overflow: 'hidden',
+        width: 80,
+    },
+    image: {
+        height: '100%',
+        width: '100%',
+    },
+    // Image Input List,
+    imageListContainer: {
+        flexDirection: 'row',
+    },
+    imageListImage: {
+        marginRight: 10,
+    },
+    imageListView: {
+        marginBottom: 8,
+    },
     // Input
     inputContainer: {
         backgroundColor: lightGrey,
