@@ -2,15 +2,17 @@ import React from 'react';
 import { View } from 'react-native';
 import * as Yup from 'yup';
 
-import { Form, FormField, FormPicker, SubmitButton } from '../components/form';
+import { Form, FormField, FormImagePicker, FormPicker, SubmitButton } from '../components/form';
 import CategoryPickerItem from '../components/picker/CategoryPickerItem';
 import SafeScreen from '../components/helpers/SafeScreen';
+import useLocation from '../hooks/useLocation';
 
 const validationSchema = Yup.object().shape({
     title: Yup.string().required().min(1).label("Title"),
     price: Yup.number().required().positive().min(1).max(10000).label("Price"),
     category: Yup.string().required().label("Category"),
-    description: Yup.string().label("Description")
+    description: Yup.string().label("Description"),
+    images: Yup.array().min(1, "Please select at least one image.")
 });
 
 const categories = [
@@ -71,14 +73,17 @@ const categories = [
 ];
 
 function ListingEditScreen(props) {
+    const location = useLocation();
+
     return (
         <SafeScreen padding>
             <View>
                 <Form
-                    initialValues={{ category: null, title: '', price: 0, description: '' }}
-                    onSubmit={values => console.log(values)}
+                    initialValues={{ category: null, title: '', price: 0, description: '', images: [] }}
+                    onSubmit={values => console.log(location)}
                     validationSchema={validationSchema}
                 >
+                    <FormImagePicker name="images" />
                     <FormField
                         autoCapitalize
                         autoCorrect={false}

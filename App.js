@@ -1,6 +1,7 @@
 import React from 'react';
 
 import AppLoading from 'expo-app-loading';
+import SafeScreen from './src/components/helpers/SafeScreen';
 import ListingEditScreen from './src/screens/ListingEditScreen';
 
 import {
@@ -26,7 +27,9 @@ export default function App() {
     return <AppLoading />;
   } else {
     return (
-      <ListingEditScreen />
+      <SafeScreen>
+        <ListingEditScreen />
+      </SafeScreen>
     );
   }
 }

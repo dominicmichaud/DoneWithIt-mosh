@@ -8,6 +8,8 @@ A Course from the site Code with Mosh. Learn how to build software Native mobile
 
 ## Node Modules
 
+`nvm use 12.22.1`
+
 `yarn install`
 
 ## Run app
