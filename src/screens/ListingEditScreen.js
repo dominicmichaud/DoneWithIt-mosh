@@ -85,7 +85,7 @@ function ListingEditScreen(props) {
                 >
                     <FormImagePicker name="images" />
                     <FormField
-                        autoCapitalize
+                        autoCapitalize="words"
                         autoCorrect={false}
                         maxLength={255}
                         name="title"
