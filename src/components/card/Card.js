@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image, View } from 'react-native';
+import { Image, TouchableWithoutFeedback, View } from 'react-native';
 
 import styles from '../../styles/components/comp.card.style.js';
 import theme from '../../config/theme';
@@ -7,40 +7,42 @@ import Typography from '../helpers/Typography.js';
 
 const { darkGrey, secondary } = theme;
 
-function Card({ cardImagePath, title, subtitle, titleColor = darkGrey, subtitleColor = secondary, uppercase = false }) {
+function Card({ cardImagePath, onPress, title, subtitle, titleColor = darkGrey, subtitleColor = secondary, uppercase = false }) {
     return (
-        <View
-            style={styles.card}
-        >
+        <TouchableWithoutFeedback onPress={onPress}>
             <View
-                style={styles.imageContainer}
+                style={styles.card}
             >
-                <Image
-                    source={cardImagePath}
-                    style={styles.cardImage}
-                    resizeMode="cover"
-                />
-            </View>
-            <View
-                style={styles.cardContent}
-            >
-                <Typography
-                    color={titleColor}
-                    otherStyles={styles.cardHeading}
-                    type="heading"
-                    uppercase={uppercase}
+                <View
+                    style={styles.imageContainer}
                 >
-                    {title}
-                </Typography>
-                <Typography
-                    color={subtitleColor}
-                    size={16}
-                    type="heading"
+                    <Image
+                        source={cardImagePath}
+                        style={styles.cardImage}
+                        resizeMode="cover"
+                    />
+                </View>
+                <View
+                    style={styles.cardContent}
                 >
-                    {subtitle}
-                </Typography>
+                    <Typography
+                        color={titleColor}
+                        otherStyles={styles.cardHeading}
+                        type="heading"
+                        uppercase={uppercase}
+                    >
+                        {title}
+                    </Typography>
+                    <Typography
+                        color={subtitleColor}
+                        size={16}
+                        type="heading"
+                    >
+                        {subtitle}
+                    </Typography>
+                </View>
             </View>
-        </View>
+        </TouchableWithoutFeedback>
     );
 }
 

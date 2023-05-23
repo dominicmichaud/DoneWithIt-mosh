@@ -2,35 +2,37 @@ import React from 'react';
 import { FlatList } from 'react-native';
 
 import Card from '../components/card/Card';
+import routes from '../navigation/routes';
 import SafeScreen from '../components/helpers/SafeScreen';
 import styles from '../styles/screens/screen.listings.style';
 
 const listings = [
     {
         id: 1,
-        title: "Red Jacket for sale",
-        price: 100,
         image: require('../assets/unsplash/jacket.jpg'),
+        price: 100,
+        title: "Red Jacket for sale",
     },
     {
         id: 2,
-        title: "Couch in great condition",
-        price: 1000,
         image: require('../assets/unsplash/Best-Sectional-Sofa.jpeg'),
+        price: 1000,
+        title: "Couch in great condition",
     },
 ]
 
-function ListingsScreen(props) {
+function ListingsScreen({ navigation }) {
     return (
-        <SafeScreen style={styles.screen}>
+        <SafeScreen padding style={styles.screen}>
             <FlatList
                 data={listings}
                 keyExtractor={listing => listing.id.toString()}
-                renderItem={({ item: { title, price, image } }) =>
+                renderItem={({ item }) =>
                     <Card
-                        title={title}
-                        subtitle={"$" + price}
-                        cardImagePath={image}
+                        cardImagePath={item.image}
+                        onPress={() => navigation.navigate(routes.LISTING_DETAILS, item)}
+                        subtitle={"$" + item.price}
+                        title={item.title}
                     />
                 }
             />
