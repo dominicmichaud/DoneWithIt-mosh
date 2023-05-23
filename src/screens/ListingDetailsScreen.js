@@ -8,11 +8,13 @@ import theme from '../config/theme';
 
 const { secondary } = theme;
 
-function ListingDetailsScreen(props) {
+function ListingDetailsScreen({ route }) {
+    const listing = route.params;
+
     return (
         <View>
             <Image
-                source={require('../assets/unsplash/jacket.jpg')}
+                source={listing.image}
                 style={styles.image}
             />
             <View
@@ -23,13 +25,13 @@ function ListingDetailsScreen(props) {
                     size={20}
                     type="heading"
                 >
-                    Red jacket for sale!
+                    {listing.title}
                 </Typography>
                 <Typography
                     color={secondary}
                     type="heading"
                 >
-                    $100
+                    ${listing.price}
                 </Typography>
                 <View
                     style={styles.userContainer}

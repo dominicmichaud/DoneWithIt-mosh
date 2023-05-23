@@ -4,12 +4,13 @@ import { Image, ImageBackground, View } from 'react-native';
 import AnimatableElement from '../components/helpers/AnimatableElement';
 import AppLogoPath from '../assets/logo-red.png';
 import RoundedButton from '../components/buttons/RoundedButton';
+import routes from '../navigation/routes';
 import styles from '../styles/screens/screen.welcome.style.js';
 import theme from '../config/theme';
 import Typography from '../components/helpers/Typography';
 import WelcomeBGPath from '../assets/background.jpg';
 
-function WelcomeScreen(props) {
+function WelcomeScreen({ navigation }) {
     const { logoLabelColor, primary, secondary } = theme;
 
     return (
@@ -52,7 +53,7 @@ function WelcomeScreen(props) {
                         bgColor={primary}
                         label="Login"
                         marginBottom={8}
-                        pressHandler={() => null}
+                        pressHandler={() => navigation.navigate(routes.LOGIN)}
                     />
                 </AnimatableElement>
                 <AnimatableElement
@@ -61,7 +62,7 @@ function WelcomeScreen(props) {
                     <RoundedButton
                         bgColor={secondary}
                         label="Register"
-                        pressHandler={() => null}
+                        pressHandler={() => navigation.navigate(routes.REGISTER)}
                     />
                 </AnimatableElement>
             </View>

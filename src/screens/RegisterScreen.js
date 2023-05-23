@@ -15,7 +15,7 @@ const validationSchema = Yup.object().shape({
 
 function RegisterScreen(props) {
     return (
-        <SafeScreen>
+        <SafeScreen padding>
             <Image
                 source={AppLogoPath}
                 style={styles.appLogo}
