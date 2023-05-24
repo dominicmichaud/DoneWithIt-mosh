@@ -15,3 +15,9 @@ A Course from the site Code with Mosh. Learn how to build software Native mobile
 ## Run app
 
 `yarn start`
+
+# Backend
+
+Open up the backend project in another VS Code window and run this command in it's proper Terminal:
+
+`node index.js`
