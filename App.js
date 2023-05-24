@@ -5,7 +5,6 @@ import { NavigationContainer } from '@react-navigation/native';
 import AppNavigator from './src/navigation/AppNavigator';
 import AuthNavigator from './src/navigation/AuthNavigator';
 import navigationTheme from './src/navigation/navigationTheme';
-import SafeScreen from './src/components/helpers/SafeScreen';
 
 import {
   useFonts,

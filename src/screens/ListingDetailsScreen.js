@@ -11,10 +11,12 @@ const { secondary } = theme;
 function ListingDetailsScreen({ route }) {
     const listing = route.params;
 
+    console.log('listing', listing)
+
     return (
         <View>
             <Image
-                source={listing.image}
+                source={{ uri: listing.images[0].url }}
                 style={styles.image}
             />
             <View

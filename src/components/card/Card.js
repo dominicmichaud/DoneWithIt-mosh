@@ -7,7 +7,7 @@ import Typography from '../helpers/Typography.js';
 
 const { darkGrey, secondary } = theme;
 
-function Card({ cardImagePath, onPress, title, subtitle, titleColor = darkGrey, subtitleColor = secondary, uppercase = false }) {
+function Card({ imageUrl, onPress, title, subtitle, titleColor = darkGrey, subtitleColor = secondary, uppercase = false }) {
     return (
         <TouchableWithoutFeedback onPress={onPress}>
             <View
@@ -17,7 +17,7 @@ function Card({ cardImagePath, onPress, title, subtitle, titleColor = darkGrey, 
                     style={styles.imageContainer}
                 >
                     <Image
-                        source={cardImagePath}
+                        source={{ uri: imageUrl }}
                         style={styles.cardImage}
                         resizeMode="cover"
                     />
