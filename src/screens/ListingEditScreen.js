@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View } from 'react-native';
 import * as Yup from 'yup';
 
 import { Form, FormField, FormImagePicker, FormPicker, SubmitButton } from '../components/form';
 import CategoryPickerItem from '../components/picker/CategoryPickerItem';
+import listingsApi from '../api/listings';
 import SafeScreen from '../components/helpers/SafeScreen';
+import UploadScreen from './UploadScreen';
 import useLocation from '../hooks/useLocation';
 
 const validationSchema = Yup.object().shape({
@@ -74,19 +76,43 @@ const categories = [
 
 function ListingEditScreen(props) {
     const location = useLocation();
+    const [uploadVisible, setUploadVisible] = useState(false);
+    const [progress, setProgress] = useState(0);
+
+    const handleSubmit = async (listing, { resetForm }) => {
+        setProgress(0);
+        setUploadVisible(true);
+        const result = await listingsApi.addListing(
+            { ...listing, location },
+            (progress) => setProgress(progress)
+        );
+
+        if (!result.ok) {
+            setUploadVisible(false);
+            return alert('Could not save the new listing. ');
+        }
+
+        resetForm();
+    };
 
     return (
         <SafeScreen padding>
+            <UploadScreen
+                onDone={() => setUploadVisible(false)}
+                progress={progress}
+                visible={uploadVisible}
+            />
             <View>
                 <Form
                     initialValues={{ category: null, title: '', price: 0, description: '', images: [] }}
-                    onSubmit={values => console.log(location)}
+                    onSubmit={handleSubmit}
                     validationSchema={validationSchema}
                 >
                     <FormImagePicker name="images" />
                     <FormField
                         autoCapitalize="words"
                         autoCorrect={false}
+                        keyboardType="default"
                         maxLength={255}
                         name="title"
                         placeholder="Title"
