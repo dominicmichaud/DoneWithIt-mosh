@@ -1,6 +1,7 @@
 import React from 'react';
 import AppLoading from 'expo-app-loading';
 import { NavigationContainer } from '@react-navigation/native';
+// import NetInfo, { useNetInfo } from '@react-native-community/netinfo';
 
 import AppNavigator from './src/navigation/AppNavigator';
 import AuthNavigator from './src/navigation/AuthNavigator';
