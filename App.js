@@ -1,4 +1,5 @@
 import React from 'react';
+import { View } from 'react-native';
 import AppLoading from 'expo-app-loading';
 import { NavigationContainer } from '@react-navigation/native';
 // import NetInfo, { useNetInfo } from '@react-native-community/netinfo';
@@ -6,6 +7,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import AppNavigator from './src/navigation/AppNavigator';
 import AuthNavigator from './src/navigation/AuthNavigator';
 import navigationTheme from './src/navigation/navigationTheme';
+import OfflineNotice from './src/components/helpers/OfflineNotice';
 
 import {
   useFonts,
@@ -32,9 +34,12 @@ export default function App() {
     return <AppLoading />;
   } else {
     return (
-      <NavigationContainer theme={navigationTheme}>
-        <AppNavigator />
-      </NavigationContainer>
+      <>
+        <OfflineNotice />
+        <NavigationContainer theme={navigationTheme}>
+          <AppNavigator />
+        </NavigationContainer>
+      </>
     );
   }
 }

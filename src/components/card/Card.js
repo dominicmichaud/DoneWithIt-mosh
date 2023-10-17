@@ -1,13 +1,14 @@
 import React from 'react';
-import { Image, TouchableWithoutFeedback, View } from 'react-native';
+import { TouchableWithoutFeedback, View } from 'react-native';
 
+import { Image } from 'react-native-expo-image-cache';
 import styles from '../../styles/components/comp.card.style.js';
 import theme from '../../config/theme';
 import Typography from '../helpers/Typography.js';
 
 const { darkGrey, secondary } = theme;
 
-function Card({ imageUrl, onPress, title, subtitle, titleColor = darkGrey, subtitleColor = secondary, uppercase = false }) {
+function Card({ imageUrl, onPress, title, subtitle, thumbnailUrl, titleColor = darkGrey, subtitleColor = secondary, uppercase = false }) {
     return (
         <TouchableWithoutFeedback onPress={onPress}>
             <View
@@ -17,9 +18,11 @@ function Card({ imageUrl, onPress, title, subtitle, titleColor = darkGrey, subti
                     style={styles.imageContainer}
                 >
                     <Image
-                        source={{ uri: imageUrl }}
-                        style={styles.cardImage}
+                        preview={{ uri: thumbnailUrl }}
                         resizeMode="cover"
+                        style={styles.cardImage}
+                        tint="light"
+                        uri={imageUrl}
                     />
                 </View>
                 <View
